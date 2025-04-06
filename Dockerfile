@@ -17,4 +17,4 @@ ENV args ""
 #CMD ["bash", "-c", "/app/wrapper ${args}"]
 CMD bash -c "/app/start.sh && /app/wrapper ${args}"
 
-EXPOSE 10020 20020
+EXPOSE 7681 10020 20020
