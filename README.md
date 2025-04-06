@@ -16,8 +16,8 @@
               └── docker-compose.yml  
 - 3、第一次wrapper登录，参照原方式：  
   - 3.1 cd /docker/wrapper-amd1 进入compose所在目录；  
-  - 3.2.0 如果有2FA，需要新开一个ssh窗口，cd /docker/wrapper-amd1 后输入echo -n 123456 > ./data/2fa.txt 预备，123456修改为2FA验证码，获取后回车确定即可，若无2FA，则跳过此步；  
-  - 3.2.1 运行 docker run -v ./data:/app/rootfs/data -e args="-L username:password -F" --rm chaslllll/wrapper-amdl:latest  ；username和password替换为自己id；正常情况下会自动拉取镜像，如果没有自动拉取镜像，可以用docker pull chaslllll/wrapper-amdl:latest 拉取。运行后会显示wrapper的登录情况，如有2FA，按3.2.0操作，登录成功后ctrl+c退出即可；  
+  - 3.2.0 如果有2FA，需要新开一个ssh窗口，cd /docker/wrapper-amd1 后输入echo -n 123456 > ./rootfs/data/2fa.txt 预备，123456修改为2FA验证码，获取后回车确定即可，若无2FA，则跳过此步；  
+  - 3.2.1 运行 docker run -v ./data:/app/rootfs -v ./amdl:/app/amdl -e args="-L username:password -F" --rm chaslllll/wrapper-test:latest  ；username和password替换为自己id；正常情况下会自动拉取镜像，如果没有自动拉取镜像，可以用docker pull chaslllll/wrapper-test:latest 拉取。运行后会显示wrapper的登录情况，如有2FA，按3.2.0操作，登录成功后ctrl+c退出即可；  
   - 3.2.2 运行docker compose up -d正常运行容器，cli命令也可但是注意修改路径映射  
   - 3.3 需要下载时运行 docker exec -it wrapper bash进入容器动态执行命令，wrapper为容器名，compose内已指定为wrapper，cli下需自行指定；  
   - 3.3.1 下载命令为 dl url，dl为源项目自动编译的二进制文件，并做了全局，此处需要注意的是镜像默认的工作路径是/app，所以amdl的config文件需映射到/app，否则会提示缺少config，而且如果docker exec进入后自己修改了当前工作路径的话，需要cd到/app后使用dl才能正确找到config；  
