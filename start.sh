@@ -21,5 +21,5 @@ else
 fi
 
 # 后台运行 ttyd
-sudo ttyd bash &
+ttyd bash &
 exit 0
