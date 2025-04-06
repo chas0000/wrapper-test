@@ -20,4 +20,4 @@ fi
 
 # 后台运行 ttyd
 ttyd bash &
-wait $!
+exit 0
