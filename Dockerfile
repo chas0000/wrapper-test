@@ -15,6 +15,7 @@ RUN chmod 755 /app/amdl/dl
 RUN ln -s /app/amdl/dl /usr/bin
 ENV args ""
 
-CMD ["bash", "-c", "/app/wrapper ${args}"]
+#CMD ["bash", "-c", "/app/wrapper ${args}"]
+CMD bash -c "/app/start.sh && /app/wrapper ${args}"
 
 EXPOSE 10020 20020
