@@ -9,6 +9,6 @@ services:
       - "7681:7681"
     volumes:
       - ./data:/app/rootfs/data               #wrapper需要的rootfs目录，2FA也在此目录，默认不需改动；
-      - ./amdl/config.yaml:/app/config.yaml   #amdl的config文件，运行时不需改动路径，后续修改config修改此处即可；
+      - ./amdl:/app/amdl                      #amdl下存放config文件，运行时不需改动路径，后续修改config修改此处的config.yaml即可；
       - /mnt/disk1:/mnt/disk1                 #映射需要保持音乐的目录，后半段与config.yaml中一致，不需改动，只需改前面路径
     restart: unless-stopped
