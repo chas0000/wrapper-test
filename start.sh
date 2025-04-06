@@ -1,8 +1,8 @@
 #!/bin/bash
 set -e
 
-# 1. 检查 /app/config.yml 是否存在
-if [ ! -f /app/config.yml ]; then
+# 1. 检查 /app/config.yaml 是否存在
+if [ ! -f /app/config.yaml ]; then
     echo "配置文件不存在，拷贝 config.yml 到 /app"
     cp /backup/config.yaml /app/
 else
