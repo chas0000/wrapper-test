@@ -5,6 +5,7 @@ set -e
 if [ ! -f /app/config.yaml ]; then
     echo "配置文件不存在，拷贝 config.yml 到 /app"
     cp /backup/config.yaml /app/
+    ls /app
 else
     echo "配置文件已存在，跳过拷贝"
 fi
