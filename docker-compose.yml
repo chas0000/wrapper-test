@@ -3,9 +3,10 @@ services:
     container_name: wrapper
     image: chaslllll/wrapper-amdl:latest
     network_mode: bridge
-    #ports:
+    ports:
       #- "10020:10020"
       #- "20020:20020"
+      - "7681:7681"
     volumes:
       - ./data:/app/rootfs/data               #wrapper需要的rootfs目录，2FA也在此目录
       - ./amdl/config.yaml:/app/config.yaml   #amdl的config文件，要求先放config后运行，镜像内并未做文件自动拷贝
