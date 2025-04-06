@@ -1,6 +1,6 @@
 services:
   wrapper:
-    container_name: wrapper2
+    container_name: wrapper
     image: chaslllll/wrapper-test:latest
     network_mode: bridge
     ports:
@@ -8,7 +8,7 @@ services:
       #- "20020:20020"
       - "7681:7681"
     volumes:
-      - ./rootfs:/app/rootfs                #wrapper需要的rootfs目录，2FA也在此目录，默认不需改动；
+      - ./rootfs:/app/rootfs                  #wrapper需要的rootfs目录，2FA也在此目录，默认不需改动；
       - ./amdl:/app/amdl                      #amdl下存放config文件，运行时不需改动路径，后续修改config修改此处的config.yaml即可；
       - /mnt/disk1:/mnt/disk1                 #映射需要保持音乐的目录，后半段与config.yaml中一致，不需改动，只需改前面路径
     restart: unless-stopped
