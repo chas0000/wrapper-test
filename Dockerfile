@@ -6,10 +6,10 @@ WORKDIR /app
 COPY ./wrapper /app/
 COPY ./wrapper /backup/
 COPY ./mp4decrypt /usr/bin/
-COPY ./dl /app/amdl/
+COPY ./dl /app/
 COPY ./config.yaml /app/amdl/
 COPY ./config.yaml /backup/
-RUN ln -s /app/amdl/dl /usr/bin
+RUN ln -s /app/dl /usr/bin
 COPY ./start.sh /app/
 RUN chmod -R 755 /app&& chmod 755 /usr/bin/mp4decrypt&&chmod 755 /app/start.sh
 ENV args ""
