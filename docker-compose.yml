@@ -1,7 +1,7 @@
 services:
   wrapper:
     container_name: wrapper
-    image: chaslllll/wrapper-amdl:latest
+    image: chaslllll/wrapper-test:latest
     network_mode: bridge
     ports:
       #- "10020:10020"
