@@ -12,7 +12,7 @@ fi
 # 2. 检查 /app/wrapper/rootfs/data 是否为空
 if [ ! -d /app/wrapper/rootfs/data ] || [ -z "$(ls -A /app/wrapper/rootfs/data 2>/dev/null)" ]; then
     echo "/app/wrapper/rootfs/data 是空的，拷贝数据目录"
-    cp -r /backup/data /app/wrapper/rootfs/
+    cp /backup/data/* /app/wrapper/rootfs/data/
 else
     echo "/app/wrapper/rootfs/data 不为空，跳过拷贝"
 fi
