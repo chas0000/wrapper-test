@@ -7,7 +7,7 @@ if [ ! -f /app/amdl/config.yaml ]; then
     cp /backup/config.yaml /app/amdl/
     ls /app/amdl
 else
-    echo "配置文件已存在，跳过拷贝"
+    cp /app/amdl/config.yaml /app/
 fi
 
 # 2. 检查 /app/rootfs/data 是否为空
