@@ -21,5 +21,5 @@ else
 fi
 
 # 后台运行 ttyd
-ttyd bash screen -xR mysession &
+ttyd -W  screen -xR mysession &
 exit 0
