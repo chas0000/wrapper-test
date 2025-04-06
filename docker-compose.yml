@@ -1,6 +1,6 @@
 services:
   wrapper:
-    container_name: wrapper
+    container_name: wrapper2
     image: chaslllll/wrapper-test:latest
     network_mode: bridge
     ports:
