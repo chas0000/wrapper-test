@@ -2,7 +2,7 @@ FROM gpac/ubuntu
 
 RUN apt update&&apt install screen -y
 RUN apt install ttyd -y
-WORKDIR /app/amdl
+WORKDIR /app
 #COPY --from=builder /app /app
 COPY ./wrapper /app/
 COPY ./wrapper/rootfs/data /backup/
