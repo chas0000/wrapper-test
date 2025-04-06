@@ -13,7 +13,7 @@ fi
 if [ ! -d /app/wrapper/rootfs/data ] || [ -z "$(ls -A /app/wrapper/rootfs/data 2>/dev/null)" ]; then
     echo "/app/wrapper/rootfs/data 是空的，拷贝数据目录"
     shopt -s dotglob  # 启用 dotglob 选项以包含隐藏文件
-    cp -r /backup/data/* /app/wrapper/rootfs/data/
+    cp -r /backup/data/. /app/wrapper/rootfs/data/
 else
     echo "/app/wrapper/rootfs/data 不为空，跳过拷贝"
 fi
