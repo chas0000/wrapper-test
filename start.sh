@@ -21,5 +21,6 @@ else
 fi
 
 # 后台运行 ttyd
-ttyd -W  screen -xR mysession &
+#ttyd -W  screen -xR mysession &
+ttyd -W tmux new -A -s mysession &
 exit 0
