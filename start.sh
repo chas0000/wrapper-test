@@ -7,7 +7,7 @@ RUN apt update && apt install -y locales
 RUN locale-gen zh_CN.UTF-8
 
 # 设置默认的语言环境为 zh_CN.UTF-8
-RUN update-locale LANG=zh_CN.UTF-8 LC_ALL=zh_CN.UTF-8
+# RUN update-locale LANG=zh_CN.UTF-8 LC_ALL=zh_CN.UTF-8
 
 # 安装其他依赖包
 RUN apt install -y screen ttyd
