@@ -19,8 +19,6 @@ if [ ! -d /app/rootfs/data ] || [ -z "$(ls -A /app/rootfs/data 2>/dev/null)" ]; 
 else
     echo "/app/rootfs/data 不为空，跳过拷贝"
 fi
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
 
 stty cols 120 rows 40
 stty raw -echo
