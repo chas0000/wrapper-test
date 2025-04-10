@@ -19,9 +19,6 @@ if [ ! -d /app/rootfs/data ] || [ -z "$(ls -A /app/rootfs/data 2>/dev/null)" ]; 
 else
     echo "/app/rootfs/data 不为空，跳过拷贝"
 fi
-
-stty cols 120 rows 40
-stty raw -echo
 export TERM=xterm-256color
 # 后台运行 ttyd
 ttyd -W  screen -xR mysession &
