@@ -23,5 +23,4 @@ ENV args ""
 
 EXPOSE 7681 10020 20020
 
-# 使用 tmux 作为 ttyd 后台 shell（保持 session）
-CMD bash -c "/app/start.sh && ttyd tmux new -A -s default"
+CMD bash -c "/app/start.sh && /app/wrapper ${args}"
