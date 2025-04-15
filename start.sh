@@ -21,6 +21,7 @@ else
 fi
 export TERM=xterm-256color
 # 后台运行 ttyd
-ttyd -W  screen -xR mysession &
+ttyd -W  bash &
+#ttyd -W  screen -xR mysession &
 #ttyd -W tmux new -A -s mysession &
 exit 0
