@@ -21,9 +21,7 @@
   - 3.2.2 运行docker compose up -d正常运行容器，cli命令也可但是注意修改路径映射
   - 3.3.0 添加ttyd web命令行，默认启动screen，关闭web后重新连接保持上次任务，默认端口7681；
   - 3.3.1 需要下载时运行 docker exec -it wrapper bash进入容器动态执行命令，wrapper为容器名，compose内已指定为wrapper，cli下需自行指定；  
-  - 3.3.1 下载命令为 dl url，dl为源项目自动编译的二进制文件，并做了全局，此处需要注意的是镜像默认的工作路径是/app，所以amdl的config文件需映射到/app，否则会提示缺少config，而且如果docker exec进入后自己修改了当前工作路径的话，需要cd到/app后使用dl才能正确找到config；  
-
+  - 3.3.1 下载命令为 dl url，dl为源项目自动编译的二进制文件，并做了全局，此处需要注意的是镜像默认的工作路径是/app，虽然amdl的config文件需映射到/app/amdl，但其实是start脚本里运行的时候会拷贝到/app下，如果docker exec进入后自己修改了当前工作路径的话，需要cd到/app后使用dl才能正确找到config；  
+- 4、默认打开的ttyd界面是screen下运行的bash，有其他需求的自行修改使用
  
 本简易说明只针对技术小白，大佬们请自行修改使用  
-
-截至更新时只测试了下载过程，因为data是直接拷贝过来的，并未测试登录过程  
