@@ -20,6 +20,7 @@ else
     echo "/app/rootfs/data 不为空，跳过拷贝"
 fi
 export TERM=xterm-256color
+export LANG=zh_CN.UTF-8
 # 后台运行 ttyd
 ttyd -W  bash &
 #ttyd -W  screen -xR mysession &
