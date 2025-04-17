@@ -1,5 +1,5 @@
 # wrapper-amdl
-攒来自用的一个docker镜像  
+攒来自用的一个docker镜像，只适用于内网x86软路由，对于外网使用的，推荐<https://github.com/akina-up/wrapper-amdl>  
 说明：  
 - 镜像基底：gpac/ubuntu  
 - wrapper来源：<https://github.com/zhaarey/wrapper> ；未作改动  
