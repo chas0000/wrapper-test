@@ -25,8 +25,8 @@ jobs:
     - name: git_amdl
       run: |
         echo "当前工作目录: $(pwd)"
+        apt update&&apt install git golang -y
         git clone https://github.com/zhaarey/apple-music-downloader.git
-        apt update&&apt install golang -y
         cd apple-music-downloader
         go build -o dl main.go
         echo "当前工作目录: $(pwd)"
