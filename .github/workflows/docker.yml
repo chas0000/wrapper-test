@@ -33,10 +33,10 @@ jobs:
         ls -l ../
     - name: git_MP4box
       run: |
-        apt update && apt install build-essential pkg-config git zlib1g-dev -y
+        apt update && apt install build-essential pkg-config g++ git cmake yasm -y
         git clone https://github.com/gpac/gpac.git gpac_public
         cd gpac_public
-        ./configure --static-bin
+        ./configure
         make
         ls -l /bin/gcc
         mv /bin/gcc/MP4box ../
