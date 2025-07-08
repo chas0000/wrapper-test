@@ -9,7 +9,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container: debian:bookworm
-
+    outputs:
+      artifact-path: ${{ steps.build.outputs.path }}
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -47,7 +48,21 @@ jobs:
         ls -l ./bin/gcc
         mv ./bin/gcc/MP4Box ${GITHUB_WORKSPACE}
         ls -l ${GITHUB_WORKSPACE}
-
+        
+  dockerize:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: 下载上一个 job 的编译产物
+        uses: actions/download-artifact@v4
+        with:
+          name: build-output
+          path: build
+    - name: 查看产物
+        run: ls -al build
+    
     - name: Set up QEMU
       # QEMU 是用于在一种架构上模拟另一种架构的工具  
       # Docker BuildKit 使用 QEMU 来实现跨平台构建  
