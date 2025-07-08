@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     container: debian:bookworm
     outputs:
-      artifact-path: ${{ steps.build.outputs.path }}
+      artifact-path: build
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -52,7 +52,11 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: build-output
-        path: ${GITHUB_WORKSPACE}  
+        path: |
+          ${{ github.workspace }}/MP4Box
+          ${{ github.workspace }}/wrapper
+          ${{ github.workspace }}/dl 
+          ${{ github.workspace }}/config.yaml
         
   dockerize:
     runs-on: ubuntu-latest
@@ -65,9 +69,9 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: build-output
-        path: ${GITHUB_WORKSPACE}
+        path: ${{ github.workspace }}
     - name: 查看产物
-      run: ls -al build
+      run: ls -al ${{ github.workspace }}
     
     - name: Set up QEMU
       # QEMU 是用于在一种架构上模拟另一种架构的工具  
