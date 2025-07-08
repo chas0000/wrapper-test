@@ -8,6 +8,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    container: debian:bookworm
 
     steps:
     - name: Checkout code
@@ -28,9 +29,9 @@ jobs:
         cd apple-music-downloader
         go build -o dl main.go
         echo "当前工作目录: $(pwd)"
-        mv dl ../
-        mv config.yaml ../
-        ls -l ../
+        mv dl ${GITHUB_WORKSPACE}
+        mv config.yaml ${GITHUB_WORKSPACE}
+        ls -l ${GITHUB_WORKSPACE}
     - name: git_MP4box
       run: |
         apt update && apt install build-essential pkg-config g++ git cmake yasm -y
@@ -39,8 +40,8 @@ jobs:
         ./configure --static-bin
         make
         ls -l ./bin/gcc
-        mv ./bin/gcc/MP4box ../
-        ls -l ../
+        mv ./bin/gcc/MP4Box ${GITHUB_WORKSPACE}
+        ls -l ${GITHUB_WORKSPACE}
 
     - name: Set up QEMU
       # QEMU 是用于在一种架构上模拟另一种架构的工具  
