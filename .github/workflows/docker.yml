@@ -52,10 +52,10 @@ jobs:
     - name: 准备构建产物
       run: |
         mkdir -p artifacts
-        cp ${{ github.workspace }}/MP4Box artifacts/
-        cp ${{ github.workspace }}/config.yaml artifacts/
-        cp -r ${{ github.workspace }}/wrapper artifacts/
-        cp ${{ github.workspace }}/dl artifacts/ 
+        cp /MP4Box artifacts/
+        cp /config.yaml artifacts/
+        cp -r /wrapper artifacts/
+        cp /dl artifacts/ 
         ls -l artifacts/
     - name: 上传构建产物
       uses: actions/upload-artifact@v4
