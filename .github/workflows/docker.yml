@@ -48,15 +48,20 @@ jobs:
         ls -l ./bin/gcc
         mv ./bin/gcc/MP4Box ${GITHUB_WORKSPACE}
         ls -l ${GITHUB_WORKSPACE}
+
+    - name: 准备构建产物
+      run: |
+        mkdir -p artifacts
+        cp ${{ github.workspace }}/MP4Box artifacts/
+        cp ${{ github.workspace }}/config.yaml artifacts/
+        cp -r ${{ github.workspace }}/wrapper artifacts/
+        cp ${{ github.workspace }}/dl artifacts/ 
+        ls -l artifacts/
     - name: 上传构建产物
       uses: actions/upload-artifact@v4
       with:
         name: build-output
-        path: |
-          ${{ github.workspace }}/MP4Box
-          ${{ github.workspace }}/wrapper
-          ${{ github.workspace }}/dl 
-          ${{ github.workspace }}/config.yaml
+        path: artifacts
         
   dockerize:
     runs-on: ubuntu-latest
