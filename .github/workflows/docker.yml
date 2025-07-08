@@ -28,6 +28,7 @@ jobs:
         apt update&&apt install git golang -y
         git clone https://github.com/zhaarey/apple-music-downloader.git
         cd apple-music-downloader
+        sed -i -E 's/^go ([0-9]+\.[0-9]+)\.[0-9]+$/go \1/' go.mod
         go build -o dl main.go
         echo "当前工作目录: $(pwd)"
         mv dl ${GITHUB_WORKSPACE}
