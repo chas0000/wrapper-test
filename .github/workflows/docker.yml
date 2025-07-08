@@ -52,7 +52,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: build-output
-        path: build/    
+        path: ${GITHUB_WORKSPACE}  
         
   dockerize:
     runs-on: ubuntu-latest
@@ -65,7 +65,7 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: build-output
-        path: build
+        path: ${GITHUB_WORKSPACE}
     - name: 查看产物
       run: ls -al build
     
