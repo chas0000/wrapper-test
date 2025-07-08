@@ -38,8 +38,8 @@ jobs:
         cd gpac_public
         ./configure
         make
-        ls -l /bin/gcc
-        mv /bin/gcc/MP4box ../
+        ls -l /gpac_public/bin/gcc
+        mv /gpac_public/bin/gcc/MP4box ../
         ls -l ../
 
     - name: Set up QEMU
