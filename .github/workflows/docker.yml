@@ -38,7 +38,7 @@ jobs:
         cd gpac_public
         ./configure --static-bin
         make
-        mv /home/runner/work/wrapper-test/wrapper-test/gpac_public/bin/gcc/MP4box ../
+        mv /home/runner/work/wrapper-test/wrapper-test/gpac_public/bin/gcc/mp4box ../
         ls -l ../
 
     - name: Set up QEMU
