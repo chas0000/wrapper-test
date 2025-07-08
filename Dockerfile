@@ -1,6 +1,6 @@
-FROM debian:bookworm-slim
+FROM debian:latest
 
-RUN apt update && apt install -y locales screen ttyd nano fonts-noto-cjk --no-install-recommends
+RUN apt update && apt install -y locales screen ttyd nano fonts-wqy-microhei
 # 生成中文语言包
 RUN locale-gen zh_CN.UTF-8
 # 设置默认的语言环境为 zh_CN.UTF-8
