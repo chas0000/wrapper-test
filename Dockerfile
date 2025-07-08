@@ -1,4 +1,4 @@
-FROM bookworm-slim
+FROM debian:bookworm-slim
 
 # 安装必需组件、UTF-8 locale 支持、中文字体
 RUN apt update && \
