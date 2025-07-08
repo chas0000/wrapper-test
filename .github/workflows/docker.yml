@@ -56,12 +56,12 @@ jobs:
       uses: actions/checkout@v2
       
     - name: 下载上一个 job 的编译产物
-        uses: actions/download-artifact@v4
-        with:
-          name: build-output
-          path: build
+      uses: actions/download-artifact@v4
+      with:
+        name: build-output
+        path: build
     - name: 查看产物
-        run: ls -al build
+      run: ls -al build
     
     - name: Set up QEMU
       # QEMU 是用于在一种架构上模拟另一种架构的工具  
