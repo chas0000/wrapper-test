@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM bookworm-slim
 # 更新 apt 源并安装中文语言包
 RUN apt update && apt install -y locales gpac
 # 生成中文语言包
@@ -16,7 +16,8 @@ COPY ./config.yaml /app/amdl/
 COPY ./config.yaml /backup/
 RUN ln -s /app/dl /usr/bin
 COPY ./start.sh /app/
-RUN chmod -R 755 /app&& chmod 755 /usr/bin/mp4decrypt&&chmod 755 /app/start.sh
+COPY ./MP4box /usr/bin
+RUN chmod -R 755 /app&& chmod 755 /usr/bin/mp4decrypt&&chmod 755 /usr/bin/MP4box && chmod 755 /app/start.sh
 RUN echo 'mouse on' > /root/.screenrc
 ENV args ""
 
