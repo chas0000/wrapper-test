@@ -53,10 +53,10 @@ jobs:
       with:
         name: build-output
         path: |
-          ${GITHUB_WORKSPACE}/MP4Box
-          ${GITHUB_WORKSPACE}/wrapper
-          ${GITHUB_WORKSPACE}/dl 
-          ${GITHUB_WORKSPACE}/config.yaml
+          ${{ github.workspace }}/MP4Box
+          ${{ github.workspace }}/wrapper
+          ${{ github.workspace }}/dl 
+          ${{ github.workspace }}/config.yaml
         
   dockerize:
     runs-on: ubuntu-latest
