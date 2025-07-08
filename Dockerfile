@@ -25,12 +25,12 @@ WORKDIR /app
 COPY ./wrapper /app/
 COPY ./wrapper /backup/
 COPY ./mp4decrypt /usr/bin/
-COPY ./MP4box /usr/bin/
+COPY ./MP4Box /usr/bin/
 COPY ./dl /app/
 COPY ./config.yaml /app/amdl/
 COPY ./config.yaml /backup/
 COPY ./start.sh /app/
-RUN chmod -R 755 /app &&  chmod 755 /usr/bin/mp4decrypt /usr/bin/MP4box /app/start.sh && ln -s /app/dl /usr/bin
+RUN chmod -R 755 /app &&  chmod 755 /usr/bin/mp4decrypt /usr/bin/MP4Box /app/start.sh && ln -s /app/dl /usr/bin
 
 
 CMD bash -c "/app/start.sh && /app/wrapper ${args}"
