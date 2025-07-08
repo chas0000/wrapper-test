@@ -36,7 +36,7 @@ jobs:
         apt update && apt install build-essential pkg-config g++ git cmake yasm -y
         git clone https://github.com/gpac/gpac.git gpac_public
         cd gpac_public
-        ./configure
+        ./configure --static-bin
         make
         ls -l /gpac_public/bin/gcc
         mv /gpac_public/bin/gcc/MP4box ../
