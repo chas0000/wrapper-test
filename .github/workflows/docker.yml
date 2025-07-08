@@ -48,6 +48,11 @@ jobs:
         ls -l ./bin/gcc
         mv ./bin/gcc/MP4Box ${GITHUB_WORKSPACE}
         ls -l ${GITHUB_WORKSPACE}
+    - name: 上传构建产物
+      uses: actions/upload-artifact@v4
+      with:
+        name: build-output
+        path: build/    
         
   dockerize:
     runs-on: ubuntu-latest
