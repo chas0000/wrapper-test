@@ -9,9 +9,8 @@ RUN rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 # 拷贝二进制和配置文件
-RUN ls -l ./wrapper
-COPY ./wrapper /app/
-COPY ./wrapper /backup/
+COPY ./wrapper/ /app/
+COPY ./wrapper/ /backup/
 COPY ./mp4decrypt /usr/bin/
 COPY ./MP4Box /usr/bin/
 COPY ./ttyd /usr/bin/
