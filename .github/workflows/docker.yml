@@ -29,22 +29,11 @@ jobs:
         mv dl ${GITHUB_WORKSPACE}
         mv config.yaml ${GITHUB_WORKSPACE}
         ls -l ${GITHUB_WORKSPACE}
-    
-    - name: git_MP4box
-      run: |
-        apt update && apt install build-essential pkg-config g++ git cmake yasm zlib1g-dev -y
-        git clone https://github.com/gpac/gpac.git gpac_public
-        cd gpac_public
-        ./configure --static-bin
-        make
-        ls -l ./bin/gcc
-        mv ./bin/gcc/MP4Box ${GITHUB_WORKSPACE}
-        ls -l ${GITHUB_WORKSPACE}
+  
 
     - name: 准备构建产物
       run: |
         mkdir -p ${GITHUB_WORKSPACE}/artifacts
-        cp ${GITHUB_WORKSPACE}/MP4Box artifacts/
         cp ${GITHUB_WORKSPACE}/dl artifacts/
         cp ${GITHUB_WORKSPACE}/config.yaml artifacts/
         ls -l ${GITHUB_WORKSPACE}/artifacts/
