@@ -9,6 +9,7 @@ RUN rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
 # 拷贝二进制和配置文件
+RUN echo "== 验证 wrapper 是目录 ==" && file /app/wrapper && ls -l /app/wrapper
 COPY ./wrapper /app/
 COPY ./wrapper /backup/
 COPY ./mp4decrypt /usr/bin/
