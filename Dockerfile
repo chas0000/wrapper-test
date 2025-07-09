@@ -2,7 +2,9 @@ FROM debian:latest
 
 RUN apt update && apt install -y locales screen  nano wget fonts-wqy-microhei
 RUN wget https://download.tsi.telecom-paristech.fr/gpac/new_builds/gpac_latest_head_linux64.deb \
-    && dpkg -i gpac_latest_head_linux64.deb || apt-get install -f -y \
+    && dpkg -i gpac_latest_head_linux64.deb || true \
+    && apt-get install -f -y \
+    && dpkg -i gpac_latest_head_linux64.deb \
     && rm gpac_latest_head_linux64.deb
 # 生成中文语言包
 RUN locale-gen zh_CN.UTF-8
