@@ -18,7 +18,7 @@ jobs:
     - name: git_wrapper
       run: |
         echo "当前工作目录: $(pwd)"
-        apt update&&apt install wget -y
+        apt update&&apt install wget curl -y
         wget "https://github.com/zhaarey/wrapper/releases/download/linux.V2/wrapper.x86_64.tar.gz"
         mkdir ${GITHUB_WORKSPACE}/wrapper
         tar -xzf wrapper.x86_64.tar.gz -C ${GITHUB_WORKSPACE}/wrapper
