@@ -1,11 +1,6 @@
-FROM debian:latest
+FROM ubuntu:latest
 
-RUN apt update && apt install -y locales screen  nano wget fonts-wqy-microhei
-RUN wget https://download.tsi.telecom-paristech.fr/gpac/new_builds/gpac_latest_head_linux64.deb && \
-    dpkg -i gpac_latest_head_linux64.deb || true && \
-    apt-get update && apt-get install -f -y && \
-    dpkg -i gpac_latest_head_linux64.deb && \
-    rm gpac_latest_head_linux64.deb
+RUN apt update && apt install -y locales screen  nano wget fonts-wqy-microhei gpac
 # 生成中文语言包
 RUN locale-gen zh_CN.UTF-8
 # 设置默认的语言环境为 zh_CN.UTF-8
