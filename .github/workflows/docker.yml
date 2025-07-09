@@ -81,9 +81,9 @@ jobs:
 
     - name: 下载ttyd
       run: |
-        apt update && apt install wget -y
+        sudo apt update && apt install wget curl -y
         wget $(curl -s https://api.github.com/repos/tsl0922/ttyd/releases/latest | grep browser_download_url | grep 'ttyd.x86_64' | cut -d '"' -f 4)
-        mv ttyd.x86_64 ../ttyd
+        cp ttyd.x86_64 ${{ github.workspace }}/ttyd
         ls -al ${{ github.workspace }}  
     
     - name: Set up QEMU
