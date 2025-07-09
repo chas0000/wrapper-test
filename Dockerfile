@@ -21,7 +21,7 @@ COPY ./dl /app/
 COPY ./config.yaml /app/amdl/
 COPY ./config.yaml /backup/
 COPY ./start.sh /app/
-RUN chmod -R 755 /app &&  chmod 755 /usr/bin/mp4decrypt /usr/bin/MP4Box /usr/bin/ttyd /app/start.sh && ln -s /app/dl /usr/bin
+RUN chmod -R 755 /app &&  chmod 755 /usr/bin/mp4decrypt /usr/bin/ttyd /app/start.sh && ln -s /app/dl /usr/bin
 
 
 CMD bash -c "/app/start.sh && /app/wrapper ${args}"
