@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM debian:latest
 
 RUN apt update && apt install -y locales screen  nano fonts-wqy-microhei
 # 生成中文语言包
