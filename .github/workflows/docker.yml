@@ -8,7 +8,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: debian:bookworm
     outputs:
       artifact-path: build
     steps:
@@ -53,22 +52,7 @@ jobs:
       with:
         name: build-output
         path: artifacts
-        
-  dockerize:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
       
-    - name: 下载上一个 job 的编译产物
-      uses: actions/download-artifact@v4
-      with:
-        name: build-output
-        path: ${{ github.workspace }}
-        merge-multiple: true
-    - name: 查看产物
-      run: ls -al ${{ github.workspace }}
 
     - name: 下载ttyd
       run: |
