@@ -46,6 +46,7 @@ jobs:
         mkdir -p ${GITHUB_WORKSPACE}/artifacts
         cp ${GITHUB_WORKSPACE}/MP4Box artifacts/
         cp ${GITHUB_WORKSPACE}/dl artifacts/
+        cp ${GITHUB_WORKSPACE}/config.yaml artifacts/
         ls -l ${GITHUB_WORKSPACE}/artifacts/
     - name: 上传构建产物
       uses: actions/upload-artifact@v4
