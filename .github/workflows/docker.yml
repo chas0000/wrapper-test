@@ -15,30 +15,7 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
-    - name: git_wrapper
-      run: |
-        echo "当前工作目录: $(pwd)"
-        apt update&&apt install wget curl -y
-        wget "https://github.com/zhaarey/wrapper/releases/download/linux.V2/wrapper.x86_64.tar.gz"
-        mkdir ${GITHUB_WORKSPACE}/wrapper
-        tar -xzf wrapper.x86_64.tar.gz -C ${GITHUB_WORKSPACE}/wrapper
-        ls -l ${GITHUB_WORKSPACE}/
-        ls -l ${GITHUB_WORKSPACE}/wrapper
-    - name: git_amdl
-      run: |
-        echo "当前工作目录: $(pwd)"
-        apt update&&apt install git wget tar -y
-        wget https://go.dev/dl/go1.23.1.linux-amd64.tar.gz
-        tar -C /usr/local -xzf go1.23.1.linux-amd64.tar.gz
-        export PATH=/usr/local/go/bin:$PATH
-        git clone https://github.com/zhaarey/apple-music-downloader.git
-        cd apple-music-downloader
-        # sed -i -E 's/^go ([0-9]+\.[0-9]+)\.[0-9]+$/go \1/' go.mod
-        go build -o dl main.go
-        echo "当前工作目录: $(pwd)"
-        mv dl ${GITHUB_WORKSPACE}
-        mv config.yaml ${GITHUB_WORKSPACE}
-        ls -l ${GITHUB_WORKSPACE}
+    
     - name: git_MP4box
       run: |
         apt update && apt install build-essential pkg-config g++ git cmake yasm zlib1g-dev -y
@@ -54,9 +31,6 @@ jobs:
       run: |
         mkdir -p ${GITHUB_WORKSPACE}/artifacts
         cp ${GITHUB_WORKSPACE}/MP4Box artifacts/
-        cp ${GITHUB_WORKSPACE}/config.yaml artifacts/
-        cp -r ${GITHUB_WORKSPACE}/wrapper artifacts/
-        cp ${GITHUB_WORKSPACE}/dl artifacts/ 
         ls -l ${GITHUB_WORKSPACE}/artifacts/
     - name: 上传构建产物
       uses: actions/upload-artifact@v4
@@ -86,6 +60,30 @@ jobs:
         wget $(curl -s https://api.github.com/repos/tsl0922/ttyd/releases/latest | grep browser_download_url | grep 'ttyd.x86_64' | cut -d '"' -f 4)
         cp ttyd.x86_64 ${{ github.workspace }}/ttyd
         ls -al ${{ github.workspace }}  
+    - name: git_wrapper
+      run: |
+        echo "当前工作目录: $(pwd)"
+        apt update&&apt install wget curl -y
+        wget "https://github.com/zhaarey/wrapper/releases/download/linux.V2/wrapper.x86_64.tar.gz"
+        mkdir ${GITHUB_WORKSPACE}/wrapper
+        tar -xzf wrapper.x86_64.tar.gz -C ${GITHUB_WORKSPACE}/wrapper
+        ls -l ${GITHUB_WORKSPACE}/
+        ls -l ${GITHUB_WORKSPACE}/wrapper
+    - name: git_amdl
+      run: |
+        echo "当前工作目录: $(pwd)"
+        apt update&&apt install git wget tar -y
+        wget https://go.dev/dl/go1.23.1.linux-amd64.tar.gz
+        tar -C /usr/local -xzf go1.23.1.linux-amd64.tar.gz
+        export PATH=/usr/local/go/bin:$PATH
+        git clone https://github.com/zhaarey/apple-music-downloader.git
+        cd apple-music-downloader
+        # sed -i -E 's/^go ([0-9]+\.[0-9]+)\.[0-9]+$/go \1/' go.mod
+        go build -o dl main.go
+        echo "当前工作目录: $(pwd)"
+        mv dl ${GITHUB_WORKSPACE}
+        mv config.yaml ${GITHUB_WORKSPACE}
+        ls -l ${GITHUB_WORKSPACE}
     
     - name: Set up QEMU
       # QEMU 是用于在一种架构上模拟另一种架构的工具  
