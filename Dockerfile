@@ -1,6 +1,9 @@
 FROM debian:latest
 
-RUN apt update && apt install -y locales screen  nano fonts-wqy-microhei
+RUN apt update && apt install -y locales screen  nano wget fonts-wqy-microhei
+RUN wget https://download.tsi.telecom-paristech.fr/gpac/new_builds/gpac_latest_head_linux64.deb \
+    && dpkg -i gpac_latest_head_linux64.deb || apt-get install -f -y \
+    && rm gpac_latest_head_linux64.deb
 # 生成中文语言包
 RUN locale-gen zh_CN.UTF-8
 # 设置默认的语言环境为 zh_CN.UTF-8
@@ -12,7 +15,7 @@ WORKDIR /app
 COPY ./wrapper/ /app/
 COPY ./wrapper/ /backup/
 COPY ./mp4decrypt /usr/bin/
-COPY ./MP4Box /usr/bin/
+#COPY ./MP4Box /usr/bin/
 COPY ./ttyd /usr/bin/
 COPY ./dl /app/
 COPY ./config.yaml /app/amdl/
