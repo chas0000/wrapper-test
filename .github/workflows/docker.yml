@@ -1,4 +1,4 @@
-name: Build min-ubuntu
+name: 创建并发布
 
 on:
   push:
