@@ -3,7 +3,7 @@ name: Build min-ubuntu
 on:
   push:
     branches:
-      - min-ubuntu
+      - main
 
 jobs:
   build:
