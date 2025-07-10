@@ -16,10 +16,10 @@ jobs:
     - name: git_amdl
       run: |
         echo "当前工作目录: $(pwd)"
-        apt update&&apt install git wget tar -y
-        wget https://go.dev/dl/go1.23.1.linux-amd64.tar.gz
-        tar -C /usr/local -xzf go1.23.1.linux-amd64.tar.gz
-        export PATH=/usr/local/go/bin:$PATH
+        apt update&&apt install git wget tar golang -y
+        # wget https://go.dev/dl/go1.23.1.linux-amd64.tar.gz
+        # tar -C /usr/local -xzf go1.23.1.linux-amd64.tar.gz
+        # export PATH=/usr/local/go/bin:$PATH
         git clone https://github.com/zhaarey/apple-music-downloader.git
         cd apple-music-downloader
         # sed -i -E 's/^go ([0-9]+\.[0-9]+)\.[0-9]+$/go \1/' go.mod
