@@ -8,7 +8,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: debian:bookworm
     outputs:
       artifact-path: build
     steps:
@@ -29,35 +28,6 @@ jobs:
         mv dl ${GITHUB_WORKSPACE}
         mv config.yaml ${GITHUB_WORKSPACE}
         ls -l ${GITHUB_WORKSPACE}
-  
-
-    - name: 准备构建产物
-      run: |
-        mkdir -p ${GITHUB_WORKSPACE}/artifacts
-        cp ${GITHUB_WORKSPACE}/dl artifacts/
-        cp ${GITHUB_WORKSPACE}/config.yaml artifacts/
-        ls -l ${GITHUB_WORKSPACE}/artifacts/
-    - name: 上传构建产物
-      uses: actions/upload-artifact@v4
-      with:
-        name: build-output
-        path: artifacts
-        
-  dockerize:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-      
-    - name: 下载上一个 job 的编译产物
-      uses: actions/download-artifact@v4
-      with:
-        name: build-output
-        path: ${{ github.workspace }}
-        merge-multiple: true
-    - name: 查看产物
-      run: ls -al ${{ github.workspace }}
 
     - name: 下载ttyd
       run: |
@@ -78,7 +48,16 @@ jobs:
         unzip wrapper_latest.zip -d ${GITHUB_WORKSPACE}/wrapper
         ls -l ${GITHUB_WORKSPACE}/
         ls -l ${GITHUB_WORKSPACE}/wrapper
-    
+    - name: git_MP4box
+      run: |
+        apt update && apt install build-essential pkg-config g++ git cmake yasm zlib1g-dev -y
+        git clone https://github.com/gpac/gpac.git gpac_public
+        cd gpac_public
+        ./configure --static-bin
+        make
+        ls -l ./bin/gcc
+        mv ./bin/gcc/MP4Box ${GITHUB_WORKSPACE}
+        ls -l ${GITHUB_WORKSPACE}
     
     - name: Set up QEMU
       # QEMU 是用于在一种架构上模拟另一种架构的工具  
