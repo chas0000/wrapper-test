@@ -5,7 +5,7 @@
 - wrapper来源：~~<https://github.com/zhaarey/wrapper> ；未作改动~~  更换为：<https://github.com/WorldObservationLog/wrapper> ,具体更新了啥我也不清楚，无脑追新
 - apple-music-downloader 来源：<https://github.com/zhaarey/apple-music-downloader> ；未作改动  
 - mp4decrypt来源：<https://www.bok.net/Bento4/binaries/Bento4-SDK-1-6-0-641.x86_64-unknown-linux.zip> ;未作mp4decrypt的自动获取新版本，有需求的可自行fork修改action。
-已安装screen  
+- 已安装screen,如果需要其他screen配置，建议fork自己搞。  
 
 使用简易说明：  
 - 1、建议使用compose方式管理，cli方式也可以，但是需要自己管理路径，以下说明均安装compose方式；  
