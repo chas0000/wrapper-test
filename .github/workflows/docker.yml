@@ -45,7 +45,7 @@ jobs:
         wget "https://github.com/zhaarey/wrapper/releases/download/linux.V2/wrapper.x86_64.tar.gz"
         mkdir ${GITHUB_WORKSPACE}/wrapper
         tar -xzf wrapper.x86_64.tar.gz -C ${GITHUB_WORKSPACE}/wrapper
-        unzip wrapper_latest.zip -d ${GITHUB_WORKSPACE}/wrapper
+        #unzip wrapper_latest.zip -d ${GITHUB_WORKSPACE}/wrapper
         ls -l ${GITHUB_WORKSPACE}/
         ls -l ${GITHUB_WORKSPACE}/wrapper
     - name: git_MP4box
