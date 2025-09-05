@@ -40,7 +40,7 @@ jobs:
         echo "当前工作目录: $(pwd)"
         apt update&&apt install wget curl -y
         latest_tag=$(curl -s https://api.github.com/repos/WorldObservationLog/wrapper/releases/latest | grep '"tag_name":' | cut -d '"' -f 4)
-        download_url="https://github.com/WorldObservationLog/wrapper/releases/download/${latest_tag}/${latest_tag}.zip"
+        download_url="https://github.com/zhaarey/wrapper/releases/download/linux.V2/wrapper.x86_64.tar.gz"
         wget -O wrapper_latest.zip "$download_url"
         #wget "https://github.com/zhaarey/wrapper/releases/download/linux.V2/wrapper.x86_64.tar.gz"
         mkdir ${GITHUB_WORKSPACE}/wrapper
