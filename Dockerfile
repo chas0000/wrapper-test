@@ -19,6 +19,6 @@ COPY ./config.yaml /app/amdl/
 COPY ./config.yaml /backup/
 COPY ./start.sh /app/
 RUN chmod -R 755 /app &&  chmod 755 /usr/bin/mp4decrypt /usr/bin/ttyd /usr/bin/MP4Box /app/start.sh && ln -s /app/dl /usr/bin
-
+EXPOSE 7681 10020 20020
 
 CMD bash -c "/app/start.sh && /app/wrapper ${args}"
