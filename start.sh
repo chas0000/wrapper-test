@@ -22,5 +22,6 @@ fi
 export TERM=xterm-256color
 export LANG=zh_CN.UTF-8
 # 后台运行
-/app/wm_server -d
-/app/shell_web -d
+/app/wm_server &
+/app/shell_web &
+wait
