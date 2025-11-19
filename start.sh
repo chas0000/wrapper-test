@@ -21,9 +21,6 @@ else
 fi
 export TERM=xterm-256color
 export LANG=zh_CN.UTF-8
-# 后台运行 ttyd
-ttyd -W  screen -xR mysession bash &
-#ttyd -W  bash &
-#ttyd -W  screen -xR mysession &
-#ttyd -W tmux new -A -s mysession &
-exit 0
+# 后台运行
+/app/wm_server -d
+/app/shell_web -d
