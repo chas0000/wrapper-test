@@ -93,7 +93,5 @@ jobs:
         platforms: linux/amd64
         push: true
         tags: |
-          ${{ secrets.DOCKER_USERNAME }}/wrapper-test:latest
-          ${{ secrets.DOCKER_USERNAME }}/wrapper-test:${{ env.BUILD_DATE }}
-          ghcr.io/${{ github.repository_owner }}/wrapper-test:latest
-          ghcr.io/${{ github.repository_owner }}/wrapper-test:${{ env.BUILD_DATE }}
+          ${{ secrets.DOCKER_USERNAME }}/wrapper-test:test
+          ghcr.io/${{ github.repository_owner }}/wrapper-test:test
