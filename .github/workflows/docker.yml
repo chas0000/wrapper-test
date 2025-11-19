@@ -18,12 +18,8 @@ jobs:
       run: |
         echo "当前工作目录: $(pwd)"
         apt update&&apt install git wget tar golang -y
-        # wget https://go.dev/dl/go1.23.1.linux-amd64.tar.gz
-        # tar -C /usr/local -xzf go1.23.1.linux-amd64.tar.gz
-        # export PATH=/usr/local/go/bin:$PATH
         git clone https://github.com/zhaarey/apple-music-downloader.git
         cd apple-music-downloader
-        # sed -i -E 's/^go ([0-9]+\.[0-9]+)\.[0-9]+$/go \1/' go.mod
         CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -o dl main.go
         echo "当前工作目录: $(pwd)"
         mv dl ${GITHUB_WORKSPACE}
@@ -40,9 +36,6 @@ jobs:
       run: |
         echo "当前工作目录: $(pwd)"
         apt update&&apt install wget curl -y
-        #latest_tag=$(curl -s https://api.github.com/repos/WorldObservationLog/wrapper/releases/latest | grep '"tag_name":' | cut -d '"' -f 4)
-        #download_url="https://github.com/WorldObservationLog/wrapper/releases/download/${latest_tag}/${latest_tag}.zip"
-        #wget -O wrapper_latest.zip "$download_url"
         wget "https://github.com/zhaarey/wrapper/releases/download/linux.V2/wrapper.x86_64.tar.gz"
         mkdir ${GITHUB_WORKSPACE}/wrapper
         tar -xzf wrapper.x86_64.tar.gz -C ${GITHUB_WORKSPACE}/wrapper
@@ -59,6 +52,10 @@ jobs:
         ls -l ./bin/gcc
         mv ./bin/gcc/MP4Box ${GITHUB_WORKSPACE}
         ls -l ${GITHUB_WORKSPACE}
+
+
+
+
     
     - name: Set up QEMU
       # QEMU 是用于在一种架构上模拟另一种架构的工具  
