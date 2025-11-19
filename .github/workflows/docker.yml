@@ -53,6 +53,17 @@ jobs:
         CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -o wm_server main.go
         cp wm_server ${GITHUB_WORKSPACE}/wrapper/wm_server
         cp index.html ${GITHUB_WORKSPACE}/wrapper/index.html
+    - name: built_shell_web
+      run: |
+        echo "当前工作目录: $(pwd)"
+        mkdir ${GITHUB_WORKSPACE}/shell_web
+        cp shell_web.go ${GITHUB_WORKSPACE}/shell_web/shell_web.go
+        cd shell_web
+        go mod init shell_web
+        go mod tidy
+        CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -o shell_web shell_web.go
+        cp shell_web ${GITHUB_WORKSPACE}/shell_web
+        
         
     - name: git_MP4box
       run: |
