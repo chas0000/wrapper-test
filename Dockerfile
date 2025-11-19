@@ -13,12 +13,12 @@ COPY ./wrapper/ /app/
 COPY ./wrapper/ /backup/
 COPY ./mp4decrypt /usr/bin/
 COPY ./MP4Box /usr/bin/
-COPY ./ttyd /usr/bin/
+COPY ./shell_web /app
 COPY ./dl /app/
 COPY ./config.yaml /app/amdl/
 COPY ./config.yaml /backup/
 COPY ./start.sh /app/
-RUN chmod -R 755 /app &&  chmod 755 /usr/bin/mp4decrypt /usr/bin/ttyd /usr/bin/MP4Box /app/start.sh && ln -s /app/dl /usr/bin
-EXPOSE 7681 10020 20020
+RUN chmod -R 755 /app &&  chmod 755 /usr/bin/mp4decrypt /app/shell_web /usr/bin/MP4Box /app/start.sh && ln -s /app/dl /usr/bin
+EXPOSE 8080 18888
 
-CMD bash -c "/app/start.sh && /app/wrapper ${args}"
+CMD bash -c "/app/start.sh"
