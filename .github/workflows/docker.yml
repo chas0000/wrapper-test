@@ -25,13 +25,7 @@ jobs:
         mv dl ${GITHUB_WORKSPACE}
         mv config.yaml ${GITHUB_WORKSPACE}
         ls -l ${GITHUB_WORKSPACE}
-
-    - name: 下载ttyd
-      run: |
-        apt update && apt install wget curl -y
-        wget $(curl -s https://api.github.com/repos/tsl0922/ttyd/releases/latest | grep browser_download_url | grep 'ttyd.x86_64' | cut -d '"' -f 4)
-        cp ttyd.x86_64 ${{ github.workspace }}/ttyd
-        ls -al ${{ github.workspace }}  
+        
     - name: git_wrapper
       run: |
         echo "当前工作目录: $(pwd)"
