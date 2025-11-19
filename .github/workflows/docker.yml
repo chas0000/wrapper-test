@@ -42,6 +42,18 @@ jobs:
         #unzip wrapper_latest.zip -d ${GITHUB_WORKSPACE}/wrapper
         ls -l ${GITHUB_WORKSPACE}/
         ls -l ${GITHUB_WORKSPACE}/wrapper
+    - name: git_wrapper_manager_web
+      run: |
+        echo "当前工作目录: $(pwd)"
+        apt update&&apt install git -y
+        git clone https://github.com/sky8282/wrapper-manager-v1.git
+        cd wrapper-manager-v1
+        go mod init wrapper-manager
+        go mod tidy
+        CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -o wm_server main.go
+        cp wm_server ${GITHUB_WORKSPACE}/wrapper/wm_server
+        cp index.html ${GITHUB_WORKSPACE}/wrapper/index.html
+        
     - name: git_MP4box
       run: |
         apt update && apt install build-essential pkg-config g++ git cmake yasm zlib1g-dev -y
