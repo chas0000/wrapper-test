@@ -27,7 +27,7 @@ jobs:
         CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -o dl main.go
         echo "当前工作目录: $(pwd)"
         mv dl ${GITHUB_WORKSPACE}
-        mv config.yaml ${GITHUB_WORKSPACE}
+        cp config.yaml.example ${GITHUB_WORKSPACE}/config.yaml
         ls -l ${GITHUB_WORKSPACE}
 
     - name: 下载ttyd
